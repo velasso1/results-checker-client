@@ -1,0 +1,59 @@
+{
+    "0001": {
+        "Name": "Перескоков",
+        "MidName": "Игорь",
+        "SurName": "Евгеньевич",
+        "Exams": {
+            "Philosophy": "90",
+            "CriminalLaw": "64",
+            "CivilLaw": "81"
+        }
+    },
+
+    "0002": {
+        "Name": "Кочетков",
+        "MidName": "Станислав",
+        "SurName": "Станиславович",
+        "Exams": {
+            "Philosophy": "83",
+            "CriminalLaw": "52",
+            "CivilLaw": "94"
+        }
+    },
+
+    "0003": {
+        "Name": "Ворожейкин",
+        "MidName": "Владимир",
+        "SurName": "Алексеевич",
+        "Exams": {
+            "Philosophy": "11",
+            "CriminalLaw": "57",
+            "CivilLaw": "49"
+        }
+    },
+
+    "0004": {
+        "Name": "Вяхирева",
+        "MidName": "Мария",
+        "SurName": "Александровна",
+        "Exams": {
+            "Philosophy": "99",
+            "CriminalLaw": "54",
+            "CivilLaw": "37"
+        }
+    },
+
+    "0005": {
+        "Name": "Параскевич",
+        "MidName": "Петр",
+        "SurName": "Сергеевич",
+        "Exams": {
+            "Philosophy": "81",
+            "CriminalLaw": "50",
+            "CivilLaw": "36"
+        }
+    }
+}
+
+
+
