@@ -9,8 +9,19 @@
             "CivilLaw": "81"
         }
     },
-
+    
     "0002": {
+        "Name": "Вяхирева",
+        "MidName": "Мария",
+        "SurName": "Александровна",
+        "Exams": {
+            "Philosophy": "99",
+            "CriminalLaw": "54",
+            "CivilLaw": "37"
+        }
+    },
+
+    "0003": {
         "Name": "Кочетков",
         "MidName": "Станислав",
         "SurName": "Станиславович",
@@ -21,7 +32,7 @@
         }
     },
 
-    "0003": {
+    "0004": {
         "Name": "Ворожейкин",
         "MidName": "Владимир",
         "SurName": "Алексеевич",
@@ -29,17 +40,6 @@
             "Philosophy": "11",
             "CriminalLaw": "57",
             "CivilLaw": "49"
-        }
-    },
-
-    "0004": {
-        "Name": "Вяхирева",
-        "MidName": "Мария",
-        "SurName": "Александровна",
-        "Exams": {
-            "Philosophy": "99",
-            "CriminalLaw": "54",
-            "CivilLaw": "37"
         }
     },
 
@@ -54,6 +54,10 @@
         }
     }
 }
+
+
+
+
 
 
 

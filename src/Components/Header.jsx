@@ -1,5 +1,7 @@
+import React from 'react';
 
-function Header(props) {
+
+function Header() {
     return (
         <header className="header">
             <a href="https://xn--l1aeji.xn--b1aew.xn--p1ai/">

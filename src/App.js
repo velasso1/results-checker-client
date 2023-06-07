@@ -1,9 +1,16 @@
-import AppRender from "./Components/AppRender";
+import Header from "./Components/Header";
+import Form from "./Components/Form";
+import Table from "./Components/Table";
 import './App.css';
 
 function App() {
   return (
-    <AppRender/>
+      <>
+        <Header />
+        <Table />
+        <Form />
+      </>
+
   );
 }
 
