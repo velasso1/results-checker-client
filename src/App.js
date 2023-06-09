@@ -1,16 +1,19 @@
 import Header from "./Components/Header";
 import Form from "./Components/Form";
-import Table from "./Components/Table";
+import RenderTab from "./Components/RenderTable";
+import GetData from './Components/GetData';
+
 import './App.css';
 
 function App() {
   return (
       <>
-        <Header />
-        <Table />
-        <Form />
-      </>
 
+        <Header />
+        <GetData/>
+        <RenderTab/>
+        {/* <Form /> */}
+      </>
   );
 }
 
