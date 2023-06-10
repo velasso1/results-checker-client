@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import Table from './Table';
 
-export default function GetData() {
+export default function GetData(props) {
 
-    const [state, setState] = useState({
-        loading: false,
-        data: null
-    });
+    const [state, setState] = useState({data: null});
+    const [user] = useState({userId: props.user})
 
     useEffect(() => {
         fetch('http://localhost:3000/db.json')
@@ -16,16 +14,21 @@ export default function GetData() {
                 loading: false,
                 data: data
             })
-
-            console.log(data);
         }))
         .catch((error) => {
             console.log('Error' + error.message);
         });
-    }, [setState])
+    }, [])
 
-
-    return (    
-        <Table data={state.data}/>
-    )
+    if (state.data) {
+        return (
+            <Table data={state.data} user={user.userId}/>
+        )
+    } else {
+        return (
+            <div className="loading">
+                <p className="loading__status">Подождите, идёт загрузка данных</p>
+            </div>
+        )
+    }
 } 

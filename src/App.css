@@ -24,7 +24,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding-top: 50px; 
+  padding-top: 120px; 
 }
 
 .main__input {
@@ -73,4 +73,11 @@ td,
 th {
   border: 1px solid black;
   padding: 20px 50px;
+}
+
+.loading,
+.invalid-user {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
 }
