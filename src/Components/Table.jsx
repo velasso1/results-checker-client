@@ -4,7 +4,7 @@ export default function Table({data, user}) {
 
     let userInfo = data[`${user}`];
 
-    if (userInfo !== undefined) {
+    if (userInfo !== undefined && userInfo !== null) {
         return (
             <div className="results">
                 <table className="results__table">

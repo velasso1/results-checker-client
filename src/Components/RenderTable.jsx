@@ -20,6 +20,10 @@ function RenderTable(props) {
         setState({
             tableIsMount: false
         })
+
+        setUser({
+            inputValue: null
+        })
     }   
 
     if (state.tableIsMount) {
