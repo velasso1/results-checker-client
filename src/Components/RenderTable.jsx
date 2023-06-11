@@ -9,9 +9,17 @@ function RenderTable(props) {
     const handleClick = (e) => {
         e.preventDefault();
 
-        setState({
-            tableIsMount: true
-        })
+        if (document.querySelector('.main__input').value === '') {
+
+            setUser({
+                inputValue: 'empty'
+            })
+
+        } else {
+            setState({
+                tableIsMount: true
+            })
+        }
     }
 
     const getBack = (e) => {
@@ -24,22 +32,39 @@ function RenderTable(props) {
         setUser({
             inputValue: null
         })
-    }   
+    }  
 
-    if (state.tableIsMount) {
+    if (user.inputValue === 'empty') {
+        return (
+            <div className="main">
+            <form className="main__form">
+                <input 
+                className="main__input main__input_error" 
+                onChange={(e) => {
+                    document.querySelector('.main__input').classList.remove('main__input_error');
+                    setUser({
+                        inputValue: e.target.value
+                    })
+                }} placeholder="Введите id"/>
+                <span className="main__error-message">*Поле пустое*</span>
+                <button className="main__button" type="button" onClick={handleClick}>Получить результаты</button>
+            </form>
+        </div>
+        )
+    } else if (state.tableIsMount) {
         return (
             <>
                 <GetData user={user.inputValue}/>
-                <div className="section">
-                    <form className="main__form">
-                        <button className="main__button" onClick={getBack}>Назад</button>
+                <div className="back">
+                    <form className="back__form">
+                        <button className="back__button" onClick={getBack}>Назад</button>
                     </form>
                 </div>
             </>
         )
     } else {
         return (
-            <div className="section">
+            <div className="main">
                 <form className="main__form">
                     <input 
                     className="main__input" 

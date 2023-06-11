@@ -52,6 +52,28 @@
             "CriminalLaw": "50",
             "CivilLaw": "36"
         }
+    },
+
+    "0013": {
+        "Name": "Артем",
+        "MidName": "Сергеевич",
+        "SurName": "Цыпкайкин",
+        "Exams": {
+            "Philosophy": "99",
+            "CriminalLaw": "89",
+            "CivilLaw": "94"
+        }
+    },
+
+    "0040": {
+        "Name": "Павел",
+        "MidName": "Сергеевич",
+        "SurName": "Горелов",
+        "Exams": {
+            "Philosophy": "92",
+            "CriminalLaw": "87",
+            "CivilLaw": "93"
+        }
     }
 }
 
