@@ -1,4 +1,5 @@
 import React from 'react';
+import UserNotFound from './UserNotFound';
 
 export default function Table({data, user}) {
 
@@ -31,11 +32,8 @@ export default function Table({data, user}) {
                 </table>
             </div>
         )
-    } else {
-        return (
-            <div className="invalid-user">
-                <p className="invalid-user__status">Пользователь не найден</p>
-            </div>
-        )
     }
+    return (
+        <UserNotFound/>
+    )
 }

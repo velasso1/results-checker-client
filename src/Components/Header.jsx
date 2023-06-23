@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-function Header() {
+export default function Header() {
     return (
         <header className="header">
             <a href="https://xn--l1aeji.xn--b1aew.xn--p1ai/">
@@ -11,5 +10,3 @@ function Header() {
         </header>
     )
 }
-
-export default Header;

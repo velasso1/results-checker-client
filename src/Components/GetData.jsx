@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Table from './Table';
+import Loading from './Loading';
 
 export default function GetData(props) {
 
@@ -24,11 +25,9 @@ export default function GetData(props) {
         return (
             <Table data={state.data} user={user.userId}/>
         )
-    } else {
-        return (
-            <div className="loading">
-                <p className="loading__status">Подождите, идёт загрузка данных</p>
-            </div>
-        )
     }
+
+    return (
+        <Loading/>
+    )
 } 
