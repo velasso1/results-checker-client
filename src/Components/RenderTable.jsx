@@ -34,7 +34,7 @@ function RenderTable(props) {
         })
     }  
 
-    if (user.inputValue === 'empty') {
+    if (user.inputValue === 'empty') {  
         return (
             <div className="main">
             <form className="main__form">

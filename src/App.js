@@ -3,7 +3,7 @@ import Header from "./Components/Header";
 import RenderTab from "./Components/RenderTable";
 // import GetData from './Components/GetData';
 
-import './App.css';
+import './css/style.css';
 
 function App() {
   return (
