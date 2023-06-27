@@ -22,6 +22,10 @@
   .main__input_error {
     border: 2px solid red;
   }
+
+  .main__input_error::placeholder {
+    content: "hello world"; 
+  }
   
   .main__input::placeholder {
     font-family: 'Open Sans', sans-serif;
@@ -29,6 +33,9 @@
   }
   
   .main__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 1rem 40rem;
     height: 30px;
     background-color: #3C75AC;
@@ -38,6 +45,7 @@
     text-transform: uppercase;
     font-family: 'Open Sans', sans-serif;
     transition: .5s;
+    text-decoration: none;
   }
   
   .main__button:hover {

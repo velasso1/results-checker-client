@@ -8,6 +8,7 @@ export default function GetData(props) {
     const [user] = useState({userId: props.user})
 
     useEffect(() => {
+        
         fetch('http://localhost:3000/db.json')
         .then(resp => resp.json()
         .then((data) => {

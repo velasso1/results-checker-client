@@ -1,13 +1,13 @@
 // import RenderTable from "./RenderTable"
 
-export default function BackForm({userId, tableMounting, onClick}) {
+export default function BackForm({onClick}) {
 
     const getBack = (e) => {
         e.preventDefault();
 
-        tableMounting = false;
-        userId = null;
-
+        let tableMounting = false;
+        let userId = null;
+        // передача tableMounting and userId в родительский компонент
         onClick(tableMounting, userId);
     }
 
