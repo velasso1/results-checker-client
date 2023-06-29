@@ -1,6 +1,7 @@
 import {useState, useRef} from 'react';
 import {Link} from 'react-router-dom'
-import GetData from './GetData';
+
+// import GetData from './GetData';
 import ResultsPage from '../pages/ResultsPage';
 
 export default function MainForm() {
