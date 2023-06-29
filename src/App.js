@@ -1,5 +1,7 @@
 import Header from "./Components/Header";
-import RenderTab from "./Components/RenderTable";
+import {Routes, Route} from 'react-router-dom';
+import StartPage from "./pages/StartPage";
+import ResultsPage from "./pages/ResultsPage";
 
 import './css/style.css';
 
@@ -7,7 +9,10 @@ function App() {
   return (
       <>
         <Header />
-        <RenderTab/>
+        <Routes>
+          <Route  path="/" element={<StartPage/>}/>
+          <Route path="/results" element={<ResultsPage/>}/>
+        </Routes>
       </>
   );
 }

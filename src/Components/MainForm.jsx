@@ -1,29 +1,38 @@
-import {useRef} from 'react';
+import {useState, useRef} from 'react';
+import {Link} from 'react-router-dom'
+import GetData from './GetData';
+import ResultsPage from '../pages/ResultsPage';
 
-export default function MainForm({tableMounting, getRes, getId}) {
+export default function MainForm() {
 
     let mainInput = useRef();
 
+    const [state, setState] = useState({tableIsMount: false});
+    const [userId, setId] = useState({id: null});
+
+    // запись введенного в инпут id в стейт
+    const writeId = (e) => {
+        mainInput.current.classList.remove('main__input_error')
+
+        setId({
+            id: mainInput.current.value
+        })
+    }
+
     // проверка инпута на пустое значение
     const checkInput = (e) => {
-        e.preventDefault();
 
         if (mainInput.current.value.trim() === '') {
             mainInput.current.classList.add('main__input_error');
         } else {
-            tableMounting = true;
+            setState({
+                tableIsMount: true
+            });
         }
-        // передаача userId and tableMounting в родительский компонент
-        getRes(tableMounting);
     }
 
-    
-    const writeId = (e) => {
-        e.preventDefault();
-        mainInput.current.classList.remove('main__input_error')
-        // вызов функции getId для передачи введенного в инпут значения в родительский компонент
-
-        getId(mainInput.current.value)
+    if (state.tableIsMount) {
+        <ResultsPage user={userId.id}/>
     }
 
     return (
@@ -35,7 +44,7 @@ export default function MainForm({tableMounting, getRes, getId}) {
                     onChange={writeId} 
                     placeholder="Введите id"
                 />
-                <a href="/page" className="main__button" onClick={checkInput}>Получить результаты</a>
+                <Link to="/results" className="main__button" onClick={checkInput}>Получить результаты</Link>
             </form>
         </div>
     )
