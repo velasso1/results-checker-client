@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export default function Header() {
     return (
@@ -7,6 +8,7 @@ export default function Header() {
             <img className="header__logo" src="logo.png" alt="logo"/>
             </a>
             <h1 className="header__title">проверка результатов вступительных испытаний адьюнктов</h1>
+            <NavLink to="/login" className="login">Войти</NavLink>
         </header>
     )
 }

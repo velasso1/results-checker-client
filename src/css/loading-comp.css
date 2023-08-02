@@ -1,6 +1,6 @@
-.loading,
+.loading, 
 .invalid-user {
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 47px;
 }

@@ -1,39 +1,25 @@
-import {useState, useRef} from 'react';
-import {Link} from 'react-router-dom'
-
-// import GetData from './GetData';
-import ResultsPage from '../pages/ResultsPage';
+import React, { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { getId } from '../store/idSlice';
+import { Link } from 'react-router-dom';
 
 export default function MainForm() {
 
-    let mainInput = useRef();
-
-    const [state, setState] = useState({tableIsMount: false});
-    const [userId, setId] = useState({id: null});
+    const mainInput = useRef();
+    const dispatch = useDispatch();
 
     // запись введенного в инпут id в стейт
-    const writeId = (e) => {
-        mainInput.current.classList.remove('main__input_error')
-
-        setId({
-            id: mainInput.current.value
-        })
+    const writeId = () => {
+        dispatch(getId(mainInput.current.value));
     }
 
     // проверка инпута на пустое значение
-    const checkInput = (e) => {
-
+    const checkInput = () => {
         if (mainInput.current.value.trim() === '') {
             mainInput.current.classList.add('main__input_error');
         } else {
-            setState({
-                tableIsMount: true
-            });
+            writeId();
         }
-    }
-
-    if (state.tableIsMount) {
-        <ResultsPage user={userId.id}/>
     }
 
     return (
@@ -42,10 +28,9 @@ export default function MainForm() {
                 <input 
                     ref={mainInput}
                     className="main__input" 
-                    onChange={writeId} 
                     placeholder="Введите id"
                 />
-                <Link to="/results" className="main__button" onClick={checkInput}>Получить результаты</Link>
+                <Link to='/results' className="main__button" onClick={checkInput}>Получить результаты</Link>
             </form>
         </div>
     )

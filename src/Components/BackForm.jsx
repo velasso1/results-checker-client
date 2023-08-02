@@ -1,21 +1,12 @@
-// import RenderTable from "./RenderTable"
+import React from 'react';
+import { Link } from 'react-router-dom'
 
-export default function BackForm({onClick}) {
-
-    const getBack = (e) => {
-        e.preventDefault();
-
-        let tableMounting = false;
-        let userId = null;
-        // передача tableMounting and userId в родительский компонент
-        onClick(tableMounting, userId);
-    }
-
+export default function BackForm() {
 
     return (
         <div className="back">
             <form className="back__form">
-                <button className="back__button" onClick={getBack}>Назад</button>
+                <Link to="/" className="back__button">Назад</Link>
             </form>
         </div>
     )

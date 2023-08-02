@@ -22,3 +22,5 @@ th {
 @import url('./table.css');
 @import url('./back-comp.css');
 @import url('./loading-comp.css');
+@import url('./login.css');
+@import url('./auth-form.css');

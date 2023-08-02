@@ -1,9 +1,13 @@
 .back {
     display: flex;
     justify-content: center;
+    padding-top: 10px;
 }
 
 .back__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 1rem 40rem;
     height: 30px;
     background-color: #3C75AC;
@@ -13,6 +17,7 @@
     text-transform: uppercase;
     font-family: 'Open Sans', sans-serif;
     transition: .5s;
+    text-decoration: none;
 }
 
 .back__button {
