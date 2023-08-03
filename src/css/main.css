@@ -22,10 +22,6 @@
   .main__input_error {
     border: 2px solid red;
   }
-
-  .main__input_error::placeholder {
-    content: "hello world"; 
-  }
   
   .main__input::placeholder {
     font-family: 'Open Sans', sans-serif;

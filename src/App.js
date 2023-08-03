@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Navigate} from 'react-router-dom';
 
 import Header from "./Components/Header";
 
@@ -18,6 +18,7 @@ function App() {
           <Route  path="/" element={<StartPage/>}/>
           <Route path="/results" element={<ResultsPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
+          <Route path="*" element={<Navigate to="/" replace />}/>
         </Routes>
       </> 
   );

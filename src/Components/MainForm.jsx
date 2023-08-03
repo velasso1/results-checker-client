@@ -1,9 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getId } from '../store/idSlice';
 import { Link } from 'react-router-dom';
 
 export default function MainForm() {
+
+    const [state, setState] = useState({path: ''});
 
     const mainInput = useRef();
     const dispatch = useDispatch();
@@ -18,6 +20,8 @@ export default function MainForm() {
         if (mainInput.current.value.trim() === '') {
             mainInput.current.classList.add('main__input_error');
         } else {
+            mainInput.current.classList.remove('main__input_error');
+            setState({path: '/results'});
             writeId();
         }
     }
@@ -27,10 +31,11 @@ export default function MainForm() {
             <form className="main__form">
                 <input 
                     ref={mainInput}
+                    onChange={checkInput}
                     className="main__input" 
                     placeholder="Введите id"
                 />
-                <Link to='/results' className="main__button" onClick={checkInput}>Получить результаты</Link>
+                <Link to={state.path} className="main__button" onClick={checkInput}>Получить результаты</Link>
             </form>
         </div>
     )
