@@ -13,7 +13,7 @@ export default function AuthForm() {
                     className="auth-pass__input" 
                     placeholder="Введите пароль"
                 />
-                <Link to="/login" className="auth__button">Войти</Link>
+                <Link to="/" className="auth__button">Войти</Link>
             </form>
         </div>
     )

@@ -5,25 +5,24 @@ import { Link } from 'react-router-dom';
 
 export default function MainForm() {
 
-    const [state, setState] = useState({path: ''});
+    const [state, setState] = useState('');
+    const [error, setError] = useState(false);
 
     const mainInput = useRef();
     const dispatch = useDispatch();
 
-    // запись введенного в инпут id в стейт
-    const writeId = () => {
-        dispatch(getId(mainInput.current.value));
+    const stateHandler = () => {
+        setState(mainInput.current.value);
+        setError(false);
+        mainInput.current.classList.remove('main__input_error');
     }
 
-    // проверка инпута на пустое значение
-    const checkInput = () => {
-        if (mainInput.current.value.trim() === '') {
+    const putId = () => {
+        if (!state.length) {
+            setError(true);
             mainInput.current.classList.add('main__input_error');
-        } else {
-            mainInput.current.classList.remove('main__input_error');
-            setState({path: '/results'});
-            writeId();
         }
+        dispatch(getId(state));
     }
 
     return (
@@ -31,11 +30,12 @@ export default function MainForm() {
             <form className="main__form">
                 <input 
                     ref={mainInput}
-                    onChange={checkInput}
+                    onChange={stateHandler}
                     className="main__input" 
                     placeholder="Введите id"
                 />
-                <Link to={state.path} className="main__button" onClick={checkInput}>Получить результаты</Link>
+                {(error) && <span className="main__error-message">Поле пустое</span>}
+                <Link to={state.length === 0 ? '/' : '/results'} className="main__button" onClick={putId}>Получить результаты</Link>
             </form>
         </div>
     )
