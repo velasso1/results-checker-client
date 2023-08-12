@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getId } from '../store/idSlice';
+import { getId } from '../store/slices/idSlice';
 import { Link } from 'react-router-dom';
 
 export default function MainForm() {
@@ -28,14 +28,15 @@ export default function MainForm() {
     return (
         <div className="main">
             <form className="main__form">
+            {(error) && <span className="main__error-message">Поле пустое</span>}
                 <input 
                     ref={mainInput}
                     onChange={stateHandler}
                     className="main__input" 
                     placeholder="Введите id"
                 />
-                {(error) && <span className="main__error-message">Поле пустое</span>}
-                <Link to={state.length === 0 ? '/' : '/results'} className="main__button" onClick={putId}>Получить результаты</Link>
+                
+                <Link to={state.length === 0 ? '/' : '/results'} className="main__button button" onClick={putId}>Получить результаты</Link>
             </form>
         </div>
     )

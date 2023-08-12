@@ -7,8 +7,9 @@
   }
   
   .main__error-message {
-    font-size: 10px;
+    font-size: 13px;
     color: red;
+    margin-bottom: 10px;
   }
   
   .main__input {
@@ -33,18 +34,10 @@
     align-items: center;
     justify-content: center;
     margin: 10px 40rem;
-    height: 30px;
-    background-color: #3C75AC;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    text-transform: uppercase;
-    font-family: 'Open Sans', sans-serif;
-    transition: .5s;
-    text-decoration: none;
-  }
+}
   
   .main__button:hover {
     cursor: pointer;
     background-color: #305f8c;
   }
+

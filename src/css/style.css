@@ -15,12 +15,30 @@ th {
   padding: 20px 50px;
 }
 
+/* similar styles */
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  background-color: #3C75AC;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  transition: .5s;
+  text-decoration: none;
+}
+
 /* import component styles */
 
 @import url('./header.css');
+@import url('./auth-form.css');
 @import url('./main.css');
 @import url('./table.css');
 @import url('./back-comp.css');
 @import url('./loading-comp.css');
 @import url('./login.css');
-@import url('./auth-form.css');
+@import url('./admin-menu.css');

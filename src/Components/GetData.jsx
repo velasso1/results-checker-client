@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeId } from '../store/idSlice';
+import { removeId } from '../store/slices/idSlice';
 import Table from './Table';
 import Loading from './Loading';
 
 export default function GetData() {
 
     const id = useSelector(state => state.id.id);
+    console.log(id);
     const dispatch = useDispatch();
 
     const [state, setState] = useState({data: null});
     const [user] = useState({userId: id})
 
     useEffect(() => {
-        
         fetch('http://localhost:3000/db.json')
         .then(resp => resp.json()
         .then((data) => {
