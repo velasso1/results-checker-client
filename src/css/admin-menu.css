@@ -1,0 +1,11 @@
+.admin-menu {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 650px;
+    padding-top: 50px;
+}
+.admin-menu__input {
+    margin-right: 50px;
+}
+.admin-menu__button {}
