@@ -1,0 +1,39 @@
+/* import reset file  */
+
+@import 'reset.scss';
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+td,
+th {
+  border: 1px solid black;
+  padding: 20px 50px;
+}
+
+/* similar styles */
+
+.button {
+    height: 30px;
+    background-color: #3C75AC;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    transition: .5s;
+    text-decoration: none;
+}
+
+// @import 'header.scss';
+
+@import 'header.scss';
+@import 'auth-form.scss';
+@import 'main.scss';
+@import 'table.scss';
+@import 'back-comp.scss';
+@import 'loading-comp.scss';
+@import 'login.scss';
+@import 'admin-menu.scss'; 

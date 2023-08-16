@@ -7,7 +7,6 @@ import Loading from './Loading';
 export default function GetData() {
 
     const id = useSelector(state => state.id.id);
-    console.log(id);
     const dispatch = useDispatch();
 
     const [state, setState] = useState({data: null});

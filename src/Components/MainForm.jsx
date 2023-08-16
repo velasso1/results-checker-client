@@ -30,6 +30,7 @@ export default function MainForm() {
             <form className="main__form">
             {(error) && <span className="main__error-message">Поле пустое</span>}
                 <input 
+                    required
                     ref={mainInput}
                     onChange={stateHandler}
                     className="main__input" 

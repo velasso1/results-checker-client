@@ -8,40 +8,45 @@ export default function AuthForm() {
 
     const [login, setLogin] = useState('');
     const [pass, setPass] = useState('');
-    const [state, setState] = useState(false);
+    const [hasError, setHasError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const logInput = useRef();
     const passInput = useRef();
 
     const signIn = (e) => {
+        
         e.preventDefault();
+        setLoading(true);
         const auth = getAuth();
 
         signInWithEmailAndPassword(auth, login, pass)
             .then(({user}) => {
+                console.log(user);
+                navigate('/authorized');
                 dispatch(setUser({
                     email: user.email,
                     id: user.uid,
                     token: user.accessToken,
                 }))
-                navigate('/authorized');
+                // sessionStorage.setItem('userEmail', `${user.email}`);
             })
             .catch((error) => {
-                if (error) {
-                    passInput.current.classList.add('main__input_error');
-                    logInput.current.classList.add('main__input_error');
-                    setState(true);
-                }
+                console.log(error.code);
+                passInput.current.classList.add('main__input_error');
+                logInput.current.classList.add('main__input_error');
+                setHasError(true);
+                setLoading(false);
             });
     }
 
     return (
         <div className="auth">
-            <form className="auth__form">
-            {state && <span className='main__error-message'>Неверный логин или пароль</span>}
+            <form className="auth__form" action="post">
+                {hasError && <span className='main__error-message'>Неверный логин или пароль</span>}
                 <input
-                    type='email' 
+                    type='email'
                     value={login}
                     ref={logInput}
                     onChange={(e) => setLogin(e.target.value)}
@@ -50,14 +55,18 @@ export default function AuthForm() {
                 />
                 <input 
                     type='password'
-                    value={pass}
+                    // value={pass}
                     ref={passInput}
                     onChange={(e) => setPass(e.target.value)}
                     className="auth-pass__input" 
                     placeholder="Введите пароль"
                 />
-                <button onClick={signIn} className="auth__button button">Войти</button>
-                
+                <button 
+                    type='submit' 
+                    onClick={signIn} 
+                    className="auth__button button">
+                    {loading ? 'Подождите, идет загрузка..' : 'Войти'}
+                </button>
             </form>
         </div>
     )

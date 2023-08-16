@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route, Navigate} from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from "./Components/Header";
 import useAuth from './hooks/use-auth';
 
