@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getId } from '../store/slices/idSlice';
 import { Link } from 'react-router-dom';
@@ -7,36 +7,21 @@ export default function MainForm() {
 
     const [state, setState] = useState('');
     const [error, setError] = useState(false);
-
-    const mainInput = useRef();
     const dispatch = useDispatch();
 
-    const stateHandler = () => {
-        setState(mainInput.current.value);
-        setError(false);
-        mainInput.current.classList.remove('main__input_error');
-    }
-
     const putId = () => {
-        if (!state.length) {
-            setError(true);
-            mainInput.current.classList.add('main__input_error');
-        }
-        dispatch(getId(state));
+        state.length ? dispatch(getId(state)) : setError(true);
     }
 
     return (
         <div className="main">
             <form className="main__form">
-            {(error) && <span className="main__error-message">Поле пустое</span>}
-                <input 
-                    required
-                    ref={mainInput}
-                    onChange={stateHandler}
+            {error && <span className="main__error-message">Поле пустое</span>}
+                <input
+                    onChange={(e) => setState(e.target.value.trim())}
                     className="main__input" 
                     placeholder="Введите id"
                 />
-                
                 <Link to={state.length === 0 ? '/' : '/results'} className="main__button button" onClick={putId}>Получить результаты</Link>
             </form>
         </div>

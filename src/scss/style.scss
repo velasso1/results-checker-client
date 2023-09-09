@@ -27,6 +27,11 @@ th {
     text-decoration: none;
 }
 
+.button:disabled {
+  background-color: #7c7c7c;
+  pointer-events: none;
+} 
+
 // @import 'header.scss';
 
 @import 'header.scss';

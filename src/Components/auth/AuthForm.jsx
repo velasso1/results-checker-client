@@ -10,60 +10,62 @@ export default function AuthForm() {
     const [pass, setPass] = useState('');
     const [hasError, setHasError] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [empty, setEmpty] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const logInput = useRef();
     const passInput = useRef();
 
     const signIn = (e) => {
-        
-        e.preventDefault();
-        setLoading(true);
         const auth = getAuth();
+        setLoading(true);
+        setEmpty(false);
 
         signInWithEmailAndPassword(auth, login, pass)
             .then(({user}) => {
-                console.log(user);
-                navigate('/authorized');
                 dispatch(setUser({
                     email: user.email,
                     id: user.uid,
                     token: user.accessToken,
-                }))
-                // sessionStorage.setItem('userEmail', `${user.email}`);
+                }));
+                document.cookie = `userId=${user.uid}; max-age=86400`;
+                navigate('/authorized');
             })
             .catch((error) => {
-                console.log(error.code);
-                passInput.current.classList.add('main__input_error');
-                logInput.current.classList.add('main__input_error');
                 setHasError(true);
                 setLoading(false);
-            });
+            });      
+    }
+
+    const checkInputs = (e) => {
+        e.preventDefault();
+        login.length && pass.length ? signIn() : setEmpty(true);
     }
 
     return (
         <div className="auth">
             <form className="auth__form" action="post">
                 {hasError && <span className='main__error-message'>Неверный логин или пароль</span>}
+                {empty && <span className='main__error-message'>Введите логин и пароль</span>}
                 <input
                     type='email'
                     value={login}
                     ref={logInput}
-                    onChange={(e) => setLogin(e.target.value)}
+                    onChange={(e) => setLogin(e.target.value.trim())}
                     className="auth-login__input" 
                     placeholder="Введите логин"
                 />
                 <input 
                     type='password'
-                    // value={pass}
+                    value={pass}
                     ref={passInput}
-                    onChange={(e) => setPass(e.target.value)}
+                    onChange={(e) => setPass(e.target.value.trim())}
                     className="auth-pass__input" 
                     placeholder="Введите пароль"
                 />
                 <button 
+                    onClick={checkInputs}
                     type='submit' 
-                    onClick={signIn} 
                     className="auth__button button">
                     {loading ? 'Подождите, идет загрузка..' : 'Войти'}
                 </button>

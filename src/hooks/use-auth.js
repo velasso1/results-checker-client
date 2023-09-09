@@ -1,12 +1,11 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { getAuth } from 'firebase/auth';
 
 export default function useAuth() {
-    const {email, token, id} = useSelector(state => state.user);
 
-    return {
-        isAuth: !!email,
-        email,
-        token,
-        id
-    }
+    const auth = getAuth();
+    const [user] = useAuthState(auth);
+
+    return !!user;
 }
