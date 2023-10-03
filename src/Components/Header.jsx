@@ -14,7 +14,7 @@ export default function Header() {
                 <img className="header__logo" src="logo.png" alt="logo"/>
             </a>
             <NavLink to='/' className="header__title">проверка результатов вступительных испытаний адьюнктов</NavLink>
-            {isAuth ? <Menu/> : <NavLink to="/login" className="login">Войти</NavLink>}
+            {isAuth ? <Menu/> : <NavLink to="/login" className="header__login">Войти</NavLink>}
         </header>
     )
 }

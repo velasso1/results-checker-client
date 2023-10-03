@@ -11,13 +11,14 @@
 
     &__title {
         text-transform: uppercase;
-        color: #fff;
+        color: #fff; 
         font-size: 20px;
         text-decoration: none;
     }
 
     &__exit,
-    &__office {
+    &__office, 
+    &__login {
         padding: 0;
         background-color: inherit;
         border: none;
@@ -32,14 +33,15 @@
         background-size: 0% 2px;
         transition: background-size .3s;
         padding-bottom: 2px; 
-    }
+    } 
 
     &__office {
         margin-right: 10px;
     }
 
     &__exit:hover,
-    &__office:hover {
+    &__office:hover,
+    &__login:hover {
         background-size: 100% 2px;
         cursor: pointer;
     }

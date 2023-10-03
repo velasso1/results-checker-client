@@ -39,6 +39,7 @@ export default function AuthForm() {
 
     const checkInputs = (e) => {
         e.preventDefault();
+        setHasError(false);
         login.length && pass.length ? signIn() : setEmpty(true);
     }
 

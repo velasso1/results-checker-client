@@ -1,12 +1,11 @@
 import React from 'react';
-import UserNotFound from './UserNotFound';
 import BackForm from './BackForm';
+import DataChecker from '../hoc/dataChecker';
 
-export default function Table({data, user}) {
+function Table({userData, userId}) {
 
-    let userInfo = data[`${user}`];
+    const user = userData[`${userId}`];
 
-    if (userInfo) {
         return (
             <>
                 <div className="results">
@@ -24,11 +23,11 @@ export default function Table({data, user}) {
                                 <td>УГОЛОВНОЕ ПРАВО</td>
                             </tr>
                             <tr>
-                                <td>{userInfo.SurName +' '+ userInfo.Name +' '+ userInfo.MidName}</td>
-                                <td>{userInfo.Exams.Philosophy}</td>
-                                <td>{userInfo.Exams.CivilLaw}</td>
-                                <td>{userInfo.Exams.CriminalLaw}</td>
-                                <td>{+userInfo.Exams.Philosophy + +userInfo.Exams.CriminalLaw + +userInfo.Exams.CivilLaw}</td>
+                                <td>{user.SurName +' '+ user.Name +' '+ user.MidName}</td>
+                                <td>{user.Exams.Philosophy}</td>
+                                <td>{user.Exams.CivilLaw}</td>
+                                <td>{user.Exams.CriminalLaw}</td>
+                                <td>{+user.Exams.Philosophy + +user.Exams.CriminalLaw + +user.Exams.CivilLaw}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -37,10 +36,6 @@ export default function Table({data, user}) {
             </>
         )
     }
-    return (
-        <>
-            <UserNotFound/>
-            <BackForm/>
-        </>
-    )
-}
+
+    export default DataChecker(Table);
+
