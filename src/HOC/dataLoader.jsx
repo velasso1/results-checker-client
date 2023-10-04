@@ -1,57 +1,51 @@
-// import React, { useEffect, useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { fetchingData } from '../store/slices/dataSlice';
-// import { getId } from '../store/slices/idSlice';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchingData } from '../store/slices/dataSlice';
+import { getId } from '../store/slices/idSlice';
 
-// const DataLoader = (OriginalComponent) => {
+const DataLoader = (Children) => {
+    return function () {
+        const [state, setState] = useState('');
+        const [error, setError] = useState(false);
+        // const data = useSelector(state => state.data.data);
+        const dispatch = useDispatch();
 
-//     return function () {
+        const getUserData = () => {
+            dispatch(fetchingData());
+            dispatch(getId(state));
+        }
 
-//     }
+        const putData = (e) => {
+            state.length ? getUserData() : setError(true);
+        }
 
-// }
+        return (
+            <Children
+            state={state} 
+            error={error}
+            setState={setState}
+            putData={putData}
+            />
+        )
+    }
 
-// export default DataLoader;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default DataLoader;
 
 
 
-// // const [state, setState] = useState('');
-// // const [error, setError] = useState(false);
-// // const dispatch = useDispatch();
 
-// // const getUserData = () => {
-// //     dispatch(getId(state));
-// //     dispatch(fetchingData());
-// // }
 
-// // const putData = (e) => {
-// //     state.length ? getUserData() : setError(true);
-// // }
 
-// // const NewComponent = () => {
 
-// //     return (
-// //         <OriginalComponent 
-// //         putData={putData}
-// //         setState={setState}
-// //         state={state}
-// //         error={error}
-// //         />
-// //     )
-// // }
 
-// // return NewComponent;
+
+
+
+
+
+
+
+
+

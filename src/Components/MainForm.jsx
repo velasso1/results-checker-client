@@ -1,23 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getId } from '../store/slices/idSlice';
-import { fetchingData } from '../store/slices/dataSlice';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import dataLoader from '../hoc/dataLoader';
 
-function MainForm() {
-
-    const [state, setState] = useState('');
-    const [error, setError] = useState(false);
-    const dispatch = useDispatch();
-
-    const getUserData = () => {
-        dispatch(getId(state));
-        dispatch(fetchingData());
-    }
-
-    const putData = (e) => {
-        state.length ? getUserData() : setError(true);
-    }
+function MainForm({state, setState, putData, error}) {
 
     return (
         <div className="main">
@@ -34,4 +19,4 @@ function MainForm() {
     )
 }
 
-export default MainForm;
+export default dataLoader(MainForm);
