@@ -49,6 +49,7 @@ export default function AuthForm() {
                 {hasError && <span className='main__error-message'>Неверный логин или пароль</span>}
                 {empty && <span className='main__error-message'>Введите логин и пароль</span>}
                 <input
+                    style={{borderColor: empty ? "#a61717" : "#bbbbbb"}}
                     type='email'
                     value={login}
                     ref={logInput}
@@ -57,6 +58,7 @@ export default function AuthForm() {
                     placeholder="Введите логин"
                 />
                 <input 
+                    style={{borderColor: empty ? "#a61717" : "#bbbbbb"}}
                     type='password'
                     value={pass}
                     ref={passInput}

@@ -9,7 +9,8 @@ import StartPage from './pages/StartPage';
 import LoginPage from './pages/LoginPage';
 import AuthorizedPage from './pages/AuthorizedPage';
 
-import './css/style.css';
+// import './css/style.css';
+import './scss/style.scss';  
 
 function App() {
 
